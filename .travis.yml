@@ -9,6 +9,14 @@ cache:
   bundler: true
   directories:
     - node_modules
+matrix:
+  include:
+    - osx_image: xcode9.4
+      env: BUILD_SDK=iphonesimulator11.4 DESTINATION="platform=iOS Simulator,name=iPhone 8"
+    - osx_image: xcode8.3
+      env: BUILD_SDK=iphonesimulator10.3 DESTINATION="platform=iOS Simulator,name=iPhone 7"
+    - osx_image: xcode7.3
+      env: BUILD_SDK=iphonesimulator9.3 DESTINATION="platform=iOS Simulator,name=iPhone 6"
 before_install:
   - nvm install 8.9.4
   - npm install -g greenkeeper-lockfile@1
